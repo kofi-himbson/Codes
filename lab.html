@@ -1,0 +1,84 @@
+<!DOCTYPE html>>
+  <head>
+    <title>Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <script>
+    function Time() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(Time, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+
+    function Time12() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+
+      if (h == 13){
+          h = 1;
+      } else if (h == 14){
+          h = 2;
+      } else if (h == 15){
+          h = 3;
+      } else if (h == 16){
+          h = 4;
+      } else if (h == 17){
+          h = 5;
+      } else if (h == 18){
+          h = 6;
+      } else if (h == 19){
+          h = 7;
+      } else if (h == 20){
+          h = 8;
+      } else if (h == 21){
+          h = 9;
+      } else if (h == 22){
+          h = 10;
+      } else if (h == 23){
+          h = 11;
+      } else if (h == 00){
+          h = 12;
+      } 
+
+
+      document.getElementById('txt').innerHTML =
+      h + ":" + m + ":" + s;
+      var t = setTimeout(Time12, 500);
+    }
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    //onload="startTime()"
+    </script>
+    </head>
+    
+    <body>
+        <p>the time is</p>
+        <div>
+        <p><a href="#" onClick="Time();">24 hour format</a></p>
+        </div>
+        <div>
+        <p><a href="#" onClick="Time12();">12 hour format</a></p>
+        </div>
+            
+    <div id="txt"></div>
+    
+    </body>
+</html>
